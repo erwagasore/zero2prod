@@ -1,2 +1,2 @@
-# zero2prod
+* Zero2prod
 Tide based take of zero2prod book
