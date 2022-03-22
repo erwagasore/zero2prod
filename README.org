@@ -1,2 +1,14 @@
 * Zero2prod
 Tide based take of zero2prod book
+
+I have decided to use Tide vs Actix-web because I strongly believe in the
+intention behind async-std.
+
+Ideologically, my adoption of a tool or anything really eventually is a form of
+voting and I want to see more Tide related content on the web.
+
+** 3rd Chapter
+*** User story
+As a blog visitor,
+I want to subscribe to the newsletter,
+So that I can receive email updates when new content is published on the blog.

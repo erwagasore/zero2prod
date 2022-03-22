@@ -3,4 +3,15 @@ name = "zero2prod"
 version = "0.0.1"
 edition = "2021"
 
+[lib]
+path = "src/lib.rs"
+
+[[bin]]
+path = "src/main.rs"
+name = "zero2prod"
+
 [dependencies]
+async-std = { version = "1.10.0", features = ["attributes"] }
+serde = { version = "1.0.136", features = ["derive"] }
+tide = "0.16.0"
+tide-testing = "0.1.3"
