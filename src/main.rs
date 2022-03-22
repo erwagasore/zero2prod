@@ -1,9 +1,9 @@
-use tide::{Response, StatusCode};
+use zero2prod::create_app;
 
 #[async_std::main]
 async fn main() -> tide::Result<()> {
-    let mut app = tide::new();
-    app.at("/health_check").get(|_| async { Ok(Response::new(StatusCode::Ok)) });
+    tide::log::start();
+    let app = create_app().await;
     app.listen("0.0.0.0:6000").await?;
     Ok(())
 }
