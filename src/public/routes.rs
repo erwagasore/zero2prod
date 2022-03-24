@@ -14,7 +14,7 @@ pub async fn health_check(mut _req: tide::Request<()>) -> tide::Result {
 
 pub async fn subscribe(mut req: tide::Request<()>) -> tide::Result {
     match req.body_form::<SubscribeFormData>().await {
-        Ok(_) => return Ok(Response::new(StatusCode::Ok)),
-        Err(_) => return Ok(Response::new(StatusCode::BadRequest)),
+        Ok(_) => Ok(Response::new(StatusCode::Ok)),
+        Err(_) => Ok(Response::new(StatusCode::BadRequest)),
     }
 }
