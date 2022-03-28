@@ -1,0 +1,5 @@
+database:
+  username: "zero2test"
+  password: "zero2test"
+  port: 5433
+  name: "zero2test"

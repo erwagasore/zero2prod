@@ -1,0 +1,28 @@
+version: '3.9'
+
+services:
+  db:
+    image: 'postgres:14-bullseye'
+    ports:
+      - '5432:5432'
+    environment:
+      - POSTGRES_USER=zero2prod
+      - POSTGRES_PASSWORD=zero2prod
+      - POSTGRES_DB=zero2prod
+    volumes:
+      - db:/var/lib/postgresql/data
+
+  db_test:
+    image: 'postgres:14-bullseye'
+    ports:
+      - '5433:5432'
+    environment:
+      - POSTGRES_USER=zero2test
+      - POSTGRES_PASSWORD=zero2test
+      - POSTGRES_DB=zero2test
+    volumes:
+      - db_test:/var/lib/postgresql/data
+
+volumes:
+  db:
+  db_test:

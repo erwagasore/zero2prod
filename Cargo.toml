@@ -11,7 +11,32 @@ path = "src/main.rs"
 name = "zero2prod"
 
 [dependencies]
-async-std = { version = "1.10.0", features = ["attributes"] }
-serde = { version = "1.0.136", features = ["derive"] }
 tide = "0.16.0"
+tide-sqlx = "0.6.1"
 tide-testing = "0.1.3"
+config = "0.12.0"
+log = "0.4.16"
+
+[dependencies.async-std]
+version = "1.11.0"
+features = ["attributes"]
+
+[dependencies.serde]
+version = "1.0.136"
+features = ["derive"]
+
+[dependencies.sqlx]
+version = "0.5.11"
+default-features = false
+features = [
+    "runtime-async-std-rustls",
+    "macros",
+    "postgres",
+    "uuid",
+    "chrono",
+    "migrate"
+]
+
+[dependencies.uuid]
+version = "0.8.2"
+features = ["v4"]

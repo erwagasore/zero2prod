@@ -1,3 +1,5 @@
+use std::env;
+
 pub use tide::StatusCode;
 use tide_testing::TideTestingExt;
 
@@ -12,6 +14,7 @@ async fn health_check_route_tests() -> tide::Result<()> {
 
 #[async_std::test]
 async fn subscribe_route_tests() -> tide::Result<()> {
+    env::set_var("APP_MODE", "testing");
     let app = create_app().await;
     let body = "name=John%20Doe&email=john_doe%40zero2prod.com";
     let res = app
@@ -19,7 +22,14 @@ async fn subscribe_route_tests() -> tide::Result<()> {
         .header("Content-Type", "application/x-www-form-urlencoded")
         .body(body)
         .await?;
-    assert_eq!(res.status(), StatusCode::Ok);
+    assert_eq!(res.status(), StatusCode::Created);
+
+    let res = app
+        .post("/subscribe")
+        .header("Content-Type", "application/x-www-form-urlencoded")
+        .body(body)
+        .await?;
+    assert_eq!(res.status(), StatusCode::ExpectationFailed);
 
     let invalid_case = vec![
         ("name=le%20guin", "missing the email"),

@@ -1,0 +1,7 @@
+application_port: 6000
+database:
+  username: "zero2prod"
+  password: "zero2prod"
+  host: "127.0.0.1"
+  port: 5432
+  name: "zero2prod"
